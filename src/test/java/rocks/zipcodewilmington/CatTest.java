@@ -12,7 +12,6 @@ import java.util.Date;
 public class CatTest {
 
 
-    // TODO - Create tests for `Integer getId()`
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
     // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
 
@@ -126,5 +125,22 @@ public class CatTest {
         Assert.assertEquals(expected, cat.getNumberOfMealsEaten());
     }
 
+    @Test
+    public void getIdTest() {
+        // Given (cat data)
+        String givenName = "Pookie";
+        Date givenBirthDate = new Date(2019, 02,01);
+        Integer givenId = 3;
+
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+
+        // When (we retrieve data from the cat)
+        Integer expected = 3;
+        givenId = cat.getId();
+
+        // Then (we expect the given data, to match the retrieved data)
+        Assert.assertEquals(givenId, expected);
+    }
 
 }
