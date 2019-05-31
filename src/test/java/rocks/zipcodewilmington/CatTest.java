@@ -10,7 +10,7 @@ import java.util.Date;
  * @author leon on 4/19/18.
  */
 public class CatTest {
-    // TODO - Create tests for `void setName(String name)`
+    /// TODO - Create tests for `void setName(String name)`
     // TODO - Create tests for `speak`
     // TODO - Create tests for `setBirthDate(Date birthDate)`
     // TODO - Create tests for `void eat(Food food)`
@@ -38,6 +38,23 @@ public class CatTest {
         Assert.assertEquals(givenName, retrievedName);
         Assert.assertEquals(givenBirthDate, retrievedBirthDate);
         Assert.assertEquals(givenId, retrievedId);
+    }
+
+    @Test
+    public void setNameTest() {
+        // Given (cat data)
+        String givenName = "Pookie";
+        Date givenBirthDate = new Date();
+        Integer givenId = 0;
+
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+
+        // When (we retrieve data from the cat)
+        String getNameResult = cat.getName();
+
+        // Then (we expect the given data, to match the retrieved data)
+        Assert.assertEquals(givenName, getNameResult);
     }
 
 }
