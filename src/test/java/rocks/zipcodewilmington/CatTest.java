@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.Mammal;
 
 import java.util.Date;
 
@@ -11,11 +12,6 @@ import java.util.Date;
  * @author leon on 4/19/18.
  */
 public class CatTest {
-
-
-
-    // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
-
 
     @Test
     public void constructorTest() {
@@ -163,5 +159,22 @@ public class CatTest {
         Assert.assertEquals(isAnimal, expected);
     }
 
+    @Test
+    public void mammalInheritanceTest() {
+        // Given (cat data)
+        String givenName = "Pookie";
+        Date givenBirthDate = new Date(2019, 02,01);
+        Integer givenId = 3;
 
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+
+        // When (we retrieve data from the cat)
+
+        Boolean isMammal = (cat instanceof Mammal);//true
+        Boolean expected = true;
+
+        // Then (we expect the given data, to match the retrieved data)
+        Assert.assertEquals(isMammal, expected);
+    }
 }
