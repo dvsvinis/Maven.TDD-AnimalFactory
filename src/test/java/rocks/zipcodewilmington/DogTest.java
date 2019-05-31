@@ -13,9 +13,6 @@ import java.util.Date;
  */
 public class DogTest {
 
-
-
-
     @Test
     public void constructorTest() {
         // Given (dog data)
