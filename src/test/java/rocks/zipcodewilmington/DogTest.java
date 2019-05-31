@@ -2,6 +2,7 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Dog;
 
 import java.util.Date;
@@ -12,9 +13,29 @@ import java.util.Date;
 public class DogTest {
 
 
-    // TODO - Create tests for `Integer getId()`
-    // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
     // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
+
+    @Test
+    public void constructorTest() {
+        // Given (dog data)
+        String givenName = "Dave";
+        Date givenBirthDate = new Date(2017, 03, 05);
+        Integer givenId = 6;
+
+        // When (a cat is constructed)
+        Dog dog = new Dog(givenName, givenBirthDate, givenId);
+
+        // When (we retrieve data from the cat)
+        String retrievedName = dog.getName();
+        Date retrievedBirthDate = dog.getBirthDate();
+        Integer retrievedId = dog.getId();
+
+        // Then (we expect the given data, to match the retrieved data)
+        Assert.assertEquals(givenName, retrievedName);
+        Assert.assertEquals(givenBirthDate, retrievedBirthDate);
+        Assert.assertEquals(givenId, retrievedId);
+    }
+
 
     @Test
     public void setNameTest() {
@@ -82,5 +103,17 @@ public class DogTest {
         Assert.assertEquals(expected, dog.getNumberOfMealsEaten());
     }
 
+    @Test
+    public void animalInheritanceTest() {
+        // Arrange
+        Dog dog = new Dog("Dave", null, 88);
+
+        // When (we retrieve data from the dog)
+        Boolean isAnimal = (dog instanceof Animal);//true
+        Boolean expected = true;
+
+        // Then (we expect the given data, to match the retrieved data)
+        Assert.assertEquals(isAnimal, expected);
+    }
 
 }
