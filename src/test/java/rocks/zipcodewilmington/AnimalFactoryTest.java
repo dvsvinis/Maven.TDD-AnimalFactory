@@ -32,7 +32,6 @@ public class AnimalFactoryTest {
         Assert.assertEquals(givenBirthDate, retrievedBirthDate);
     }
 
-
     @Test
     public void createCatTest() {
 
