@@ -31,6 +31,7 @@ public class CatHouseTest {
 
     @Test
     public void removeCatTest() {
+        CatHouse.clear();
         // Arrange
         Cat cat = new Cat(null, null, null);
 
@@ -65,6 +66,8 @@ public class CatHouseTest {
 
     @Test
     public void getCatByIdTest() {
+        CatHouse.clear();
+
         //Given (cat data)
         String givenName = "Zulu";
         Date givenBirthDate = new Date();
