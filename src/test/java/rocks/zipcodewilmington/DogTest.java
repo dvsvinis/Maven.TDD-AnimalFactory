@@ -4,28 +4,57 @@ import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Dog;
 
+import java.util.Date;
+
 /**
  * @author leon on 4/19/18.
  */
 public class DogTest {
-    // TODO - Create tests for `new Dog(String name, Date birthDate, Integer id)`
+
     // TODO - Create tests for `speak`
     // TODO - Create tests for `setBirthDate(Date birthDate)`
     // TODO - Create tests for `void eat(Food food)`
     // TODO - Create tests for `Integer getId()`
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
     // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
+
     @Test
     public void setNameTest() {
-        // Given (a name exists and a dog exists)
+        // Arrange
         Dog dog = new Dog(null, null, null);
-        String givenName = "Milo";
 
-        // When (a dog's name is set to the given name)
-        dog.setName(givenName);
+        // Act
+        String dogName = "Dave";
+        dog.setName(dogName);
 
-        // Then (we expect to get the given name from the dog)
-        String dogName = dog.getName();
-        Assert.assertEquals(dogName, givenName);
+        // Assert
+        Assert.assertEquals(dog.getName(), "Dave");
     }
+
+    @Test
+    public void setBirthDateTest() {
+        // Arrange
+        Dog dog = new Dog("Dave", null, null);
+
+        // Act
+        Date birthDate = new Date (2017, 03, 07);
+        dog.setBirthDate(birthDate);
+
+        // Assert
+        Assert.assertEquals(birthDate, dog.getBirthDate());
+    }
+
+    @Test
+    public void getIdTest() {
+        // Arrange
+        Dog dog = new Dog("Dave", null, 88);
+
+        //Act
+        Integer dogId = dog.getId();
+
+        // Assert
+        Integer expected = 88;
+        Assert.assertEquals(dogId, expected);
+    }
+
 }
