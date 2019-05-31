@@ -11,8 +11,7 @@ import java.util.Date;
  */
 public class CatTest {
 
-    //
-    // TODO - Create tests for `setBirthDate(Date birthDate)`
+    // TODO -
     // TODO - Create tests for `void eat(Food food)`
     // TODO - Create tests for `Integer getId()`
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
@@ -22,7 +21,7 @@ public class CatTest {
     @Test
     public void constructorTest() {
         // Given (cat data)
-        String givenName = "Zula";
+        String givenName = "Zulu";
         Date givenBirthDate = new Date();
         Integer givenId = 0;
 
@@ -44,8 +43,8 @@ public class CatTest {
     public void setNameTest() {
         // Given (cat data)
         String givenName = "Pookie";
-        Date givenBirthDate = new Date();
-        Integer givenId = 0;
+        Date givenBirthDate = new Date(2019, 02,01);
+        Integer givenId = 3;
 
         // When (a cat is constructed)
         Cat cat = new Cat(givenName, givenBirthDate, givenId);
@@ -61,8 +60,8 @@ public class CatTest {
     public void speakTest() {
         // Given (cat data)
         String givenName = "Pookie";
-        Date givenBirthDate = new Date();
-        Integer givenId = 0;
+        Date givenBirthDate = new Date(2019, 02,01);
+        Integer givenId = 3;
 
         // When (a cat is constructed)
         Cat cat = new Cat(givenName, givenBirthDate, givenId);
@@ -72,6 +71,41 @@ public class CatTest {
 
         // Then (we expect the given data, to match the retrieved data)
         Assert.assertEquals(catSpeak, "meow!");
+    }
+
+    @Test
+    public void getBirthDateTest() {
+        // Given (cat data)
+        String givenName = "Pookie";
+        Date givenBirthDate = new Date(2019, 02,01);
+        Integer givenId = 3;
+
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+
+        // When (we retrieve data from the cat)
+        givenBirthDate = cat.getBirthDate();
+
+        // Then (we expect the given data, to match the retrieved data)
+        Assert.assertEquals(givenBirthDate, cat.getBirthDate());
+    }
+
+    @Test
+    public void setBirthDateTest() {
+        // Given (cat data)
+        String givenName = "Pookie";
+        Date givenBirthDate = new Date(2019, 02,01);
+        Integer givenId = 3;
+
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+
+        // When (we retrieve data from the cat)
+        Date changeBirthDate = new Date(2019, 02, 15);
+        cat.setBirthDate(changeBirthDate);
+
+        // Then (we expect the given data, to match the retrieved data)
+        Assert.assertEquals(changeBirthDate, cat.getBirthDate());
     }
 
 }
