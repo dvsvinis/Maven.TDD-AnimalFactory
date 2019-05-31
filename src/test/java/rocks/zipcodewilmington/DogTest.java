@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public class DogTest {
 
-    // TODO - Create tests for `speak`
+
     // TODO - Create tests for `setBirthDate(Date birthDate)`
     // TODO - Create tests for `void eat(Food food)`
     // TODO - Create tests for `Integer getId()`
@@ -55,6 +55,18 @@ public class DogTest {
         // Assert
         Integer expected = 88;
         Assert.assertEquals(dogId, expected);
+    }
+
+    @Test
+    public void speakTest() {
+        // Arrange
+        Dog dog = new Dog("Dave", null, 88);
+
+        //Act
+        String dogSpeak = dog.speak();
+        // Assert
+        String expected = "bark!";
+        Assert.assertEquals(dogSpeak, expected);
     }
 
 }
