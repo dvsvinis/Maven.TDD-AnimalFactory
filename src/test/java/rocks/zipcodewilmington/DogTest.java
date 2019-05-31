@@ -12,8 +12,6 @@ import java.util.Date;
 public class DogTest {
 
 
-    // TODO - Create tests for `setBirthDate(Date birthDate)`
-    // TODO - Create tests for `void eat(Food food)`
     // TODO - Create tests for `Integer getId()`
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
     // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
@@ -64,9 +62,25 @@ public class DogTest {
 
         //Act
         String dogSpeak = dog.speak();
+
         // Assert
         String expected = "bark!";
         Assert.assertEquals(dogSpeak, expected);
     }
+
+    @Test
+    public void eatFood() {
+        // Arrange
+        Dog dog = new Dog("Dave", null, 88);
+
+        //Act
+        Food dogFood = new Food();
+        dog.eat(dogFood);
+
+        // Assert
+        Integer expected = 1;
+        Assert.assertEquals(expected, dog.getNumberOfMealsEaten());
+    }
+
 
 }
