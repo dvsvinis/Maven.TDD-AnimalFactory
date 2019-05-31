@@ -15,36 +15,27 @@ import java.util.Date;
  */
 public class CatHouseTest {
 
-
-    // TODO - Create tests for `Integer getNumberOfCats()`
-
     @Test
-    public void testGetNumberOfCats() {
-        // Given (cat data)
-        String givenName = "Pookie";
-        Date givenBirthDate = new Date(2019, 11, 20);
-
-        AnimalFactory animal = new AnimalFactory();
-        Cat cat = animal.createCat(givenName, givenBirthDate);
-        CatHouse.clear();
+    public void addTest() {
+        // Arrange
+        Cat cat = new Cat(null, null, null);
 
         // Act
-        CatHouse.add(cat);
+        CatHouse.clear();
         CatHouse.add(cat);
 
-        // Then
-        Integer expected = 2;
+        // Assert
+        Integer expected = 1;
         Assert.assertEquals(CatHouse.getNumberOfCats(), expected);
     }
 
     @Test
     public void removeCatTest() {
-        //Given (cat data)
-        String givenName = "Zulu";
-        Date givenBirthDate = new Date();
-        Integer givenId = 1;
+        // Arrange
+        Cat cat = new Cat(null, null, null);
 
-        Cat cat = new Cat(givenName, givenBirthDate, givenId);
+        // Act
+        CatHouse.add(cat);
 
         // Act
         CatHouse.remove(cat);
@@ -61,7 +52,6 @@ public class CatHouseTest {
         String givenName = "Zulu";
         Date givenBirthDate = new Date();
         Integer givenId = 2;
-
         Cat cat = new Cat(givenName, givenBirthDate, givenId);
 
         // Act
@@ -79,7 +69,6 @@ public class CatHouseTest {
         String givenName = "Zulu";
         Date givenBirthDate = new Date();
         Integer givenId = 2;
-
         Cat cat = new Cat(givenName, givenBirthDate, givenId);
 
         // Act
@@ -89,6 +78,22 @@ public class CatHouseTest {
         // Assert
         Assert.assertEquals(testCat, cat);
 
+    }
+
+    @Test
+    public void GetNumberOfCatsTest() {
+        // Arrange
+        Cat cat = new Cat(null, null, null);
+
+        // Act
+        CatHouse.clear();
+        CatHouse.add(cat);
+        CatHouse.add(cat);
+        CatHouse.add(cat);
+
+        // Then
+        Integer expected = 3;
+        Assert.assertEquals(CatHouse.getNumberOfCats(), expected);
     }
 
 }
