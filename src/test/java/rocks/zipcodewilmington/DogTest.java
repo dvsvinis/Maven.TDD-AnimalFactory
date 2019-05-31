@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Dog;
+import rocks.zipcodewilmington.animals.Mammal;
 
 import java.util.Date;
 
@@ -13,7 +14,7 @@ import java.util.Date;
 public class DogTest {
 
 
-    // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
+
 
     @Test
     public void constructorTest() {
@@ -114,6 +115,19 @@ public class DogTest {
 
         // Then (we expect the given data, to match the retrieved data)
         Assert.assertEquals(isAnimal, expected);
+    }
+
+    @Test
+    public void mammalInheritanceTest() {
+        // Arrange
+        Dog dog = new Dog("Dave", null, 88);
+
+        // When (we retrieve data from the dog)
+        Boolean isMammal = (dog instanceof Mammal);//true
+        Boolean expected = true;
+
+        // Then (we expect the given data, to match the retrieved data)
+        Assert.assertEquals(isMammal, expected);
     }
 
 }
